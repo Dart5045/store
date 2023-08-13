@@ -1,6 +1,7 @@
 package com.mylearning.products.command.rest;
 
 import com.mylearning.products.command.CreateProductCommand;
+import jakarta.validation.Valid;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class ProductsCommandController {
     }
 
     @PostMapping
-    public String createProduct(@RequestBody CreateProductRestModel createProductRestModel){
+    public String createProduct(@Valid @RequestBody CreateProductRestModel createProductRestModel){
 
         CreateProductCommand productCommand = CreateProductCommand
                 .builder()
