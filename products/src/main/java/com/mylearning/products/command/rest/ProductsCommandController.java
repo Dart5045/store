@@ -1,6 +1,6 @@
-package com.mylearning.products.rest;
+package com.mylearning.products.command.rest;
 
-import com.mylearning.products.rest.command.CreateProductCommand;
+import com.mylearning.products.command.CreateProductCommand;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("api/v1/products")
 
-public class ProductsController {
+public class ProductsCommandController {
 
     private final Environment env;
     private final CommandGateway commandGateway;
 
-    public ProductsController(Environment env, CommandGateway commandGateway) {
+    public ProductsCommandController(Environment env, CommandGateway commandGateway) {
         this.env = env;
         this.commandGateway = commandGateway;
     }

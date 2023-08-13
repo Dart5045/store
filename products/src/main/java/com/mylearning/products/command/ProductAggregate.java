@@ -1,6 +1,6 @@
-package com.mylearning.products.rest.command;
+package com.mylearning.products.command;
 
-import com.mylearning.products.rest.core.events.ProductCreatedEvent;
+import com.mylearning.products.core.events.ProductCreatedEvent;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;

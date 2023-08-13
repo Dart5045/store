@@ -1,4 +1,4 @@
-package com.mylearning.products.rest.command;
+package com.mylearning.products.command;
 
 import lombok.Builder;
 import lombok.Data;

@@ -3,6 +3,20 @@ server:
 spring:
   application:
     name: products
+  datasource:
+    url: jdbc:h2:file:~/products;AUTO_SERVER=true
+    username: root
+    password: admin123
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
 eureka:
   client:
     fetch-registry: true

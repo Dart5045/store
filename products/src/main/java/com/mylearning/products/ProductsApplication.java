@@ -1,4 +1,4 @@
-package com.mylearning.products.rest;
+package com.mylearning.products;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
