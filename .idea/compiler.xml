@@ -7,8 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="eureka-server" />
         <module name="apigw" />
+        <module name="orders" />
+        <module name="eureka-server" />
         <module name="products" />
       </profile>
     </annotationProcessing>
