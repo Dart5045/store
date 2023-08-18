@@ -1,7 +1,9 @@
 package com.mylearning.orders.command;
 
 import com.mylearning.orders.command.commands.CreateOrderCommand;
+import com.mylearning.orders.command.commands.RejectOrderCommand;
 import com.mylearning.orders.core.events.OrderCreatedEvent;
+import com.mylearning.orders.core.events.OrderRejectedEvent;
 import com.mylearning.orders.core.model.OrderStatus;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
@@ -35,6 +37,19 @@ public class OrderAggregate {
         this.addressId = orderCreatedEvent.getAddressId();
         this.quantity = orderCreatedEvent.getQuantity();
         this.orderStatus = orderCreatedEvent.getOrderStatus();
+    }
+
+    @CommandHandler
+    public void handle(RejectOrderCommand rejectOrderCommand) {
+        OrderRejectedEvent orderRejectedEvent = new OrderRejectedEvent(
+            rejectOrderCommand.orderId,
+            rejectOrderCommand.getReason()
+        );
+        AggregateLifecycle.apply(orderRejectedEvent);
+    }
+    @EventSourcingHandler
+    public void on(OrderRejectedEvent orderRejectedEvent){
+        this.orderStatus = orderRejectedEvent.getOrderStatus();
     }
 
 }
